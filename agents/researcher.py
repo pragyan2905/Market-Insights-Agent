@@ -13,9 +13,9 @@ from langchain_core.messages import SystemMessage, HumanMessage
 logger = get_logger(__name__)
 
 class ResearcherAgent:
-    def __init__(self):
-        self.rag = DynamicWebRAG()
-        self.llm = AsyncGeminiClient(temperature=0.1) # low temp for facts
+    def __init__(self, model: str = "gemini-3.0-pro", api_key: str = None):
+        self.rag = DynamicWebRAG(api_key=api_key)
+        self.llm = AsyncGeminiClient(model_name=model, temperature=0.1, api_key=api_key) # low temp for facts
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=1000,
             chunk_overlap=200,

@@ -8,15 +8,22 @@ from structlog import get_logger
 
 logger = get_logger(__name__)
 
+import os
+
 class DynamicWebRAG:
     """
     Manages an in-memory Qdrant instance for dynamic Web-RAG.
     Creates temporary collections for specific research sessions.
     """
-    def __init__(self, embedding_model: str = "models/gemini-embedding-001"):
+    def __init__(self, embedding_model: str = "models/gemini-embedding-001", api_key: Optional[str] = None):
         # We use an in-memory instance for fast, temporary Web-RAG collections
         self.client = AsyncQdrantClient(location=":memory:")
-        self.embeddings = GoogleGenerativeAIEmbeddings(model=embedding_model)
+        
+        resolved_api_key = api_key or os.getenv("GOOGLE_API_KEY")
+        self.embeddings = GoogleGenerativeAIEmbeddings(
+            model=embedding_model,
+            google_api_key=resolved_api_key
+        )
         # Vector size for gemini-embedding-001 is 3072
         self.vector_size = 3072 
 

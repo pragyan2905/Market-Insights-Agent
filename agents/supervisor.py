@@ -9,10 +9,10 @@ import json
 logger = get_logger(__name__)
 
 class SupervisorAgent:
-    def __init__(self):
-        self.researcher = ResearcherAgent()
-        self.analyst = AnalystAgent()
-        self.llm = AsyncGeminiClient(temperature=0.0)
+    def __init__(self, model: str = "gemini-3.0-pro", api_key: str = None):
+        self.researcher = ResearcherAgent(model=model, api_key=api_key)
+        self.analyst = AnalystAgent(model=model, api_key=api_key)
+        self.llm = AsyncGeminiClient(model_name=model, temperature=0.0, api_key=api_key)
         
     async def _decompose_query(self, user_query: str) -> List[str]:
         """Decomposes the user query into specific search queries."""

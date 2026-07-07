@@ -6,8 +6,8 @@ from core.llm_client import AsyncGeminiClient
 logger = get_logger(__name__)
 
 class AnalystAgent:
-    def __init__(self):
-        self.llm = AsyncGeminiClient(temperature=0.2)
+    def __init__(self, model: str = "gemini-3.0-pro", api_key: str = None):
+        self.llm = AsyncGeminiClient(model_name=model, temperature=0.2, api_key=api_key)
         with open("agents/prompts/market_research.txt", "r") as f:
             self.system_prompt = f.read()
             

@@ -79,17 +79,30 @@ st.markdown("""
 st.title("Optylize Market Insights")
 st.markdown("Enter a market research query below. Our ASI-powered agentic workflow will crawl the web, process data in real-time, and generate a structured report.")
 
+st.sidebar.title("⚙️ Configuration")
+api_key = st.sidebar.text_input("Google API Key", type="password", placeholder="Enter your key...")
+model_choice = st.sidebar.selectbox(
+    "Select Gemini Model",
+    ("gemini-3.0-pro", "gemini-2.5-flash", "gemini-2.0-pro")
+)
+
 query = st.text_input("Research Query", placeholder="e.g. AI adoption trends and ASI workflows in the global logistics industry")
 
 if st.button("Generate Insights ✨"):
     if not query:
         st.warning("Please enter a query first.")
+    elif not api_key:
+        st.warning("Please enter your Google API Key in the sidebar.")
     else:
         with st.spinner("Agents are researching... this usually takes 15-30 seconds."):
             try:
                 response = requests.post(
                     "http://localhost:8000/api/v1/research/",
-                    json={"query": query},
+                    json={
+                        "query": query,
+                        "api_key": api_key,
+                        "model": model_choice
+                    },
                     timeout=90
                 )
                 

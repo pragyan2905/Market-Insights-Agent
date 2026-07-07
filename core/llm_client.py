@@ -9,16 +9,18 @@ from structlog import get_logger
 logger = get_logger(__name__)
 
 class AsyncGeminiClient:
-    def __init__(self, model_name: str = "gemini-2.5-flash", temperature: float = 0.0):
+    def __init__(self, model_name: str = "gemini-3.0-pro", temperature: float = 0.0, api_key: Optional[str] = None):
         self.model_name = model_name
-        api_key = os.getenv("GOOGLE_API_KEY")
-        if not api_key:
+        
+        # Use provided key, otherwise fallback to env
+        resolved_api_key = api_key or os.getenv("GOOGLE_API_KEY")
+        if not resolved_api_key:
             logger.warning("GOOGLE_API_KEY environment variable is not set. LLM calls will fail.")
             
         self.llm = ChatGoogleGenerativeAI(
             model=self.model_name,
             temperature=temperature,
-            api_key=SecretStr(api_key) if api_key else None,
+            api_key=SecretStr(resolved_api_key) if resolved_api_key else None,
             convert_system_message_to_human=True,
         )
 
