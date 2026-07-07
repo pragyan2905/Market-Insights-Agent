@@ -86,6 +86,24 @@ model_choice = st.sidebar.selectbox(
     ("gemini-3.0-pro", "gemini-2.5-flash", "gemini-2.0-pro")
 )
 
+st.sidebar.divider()
+st.sidebar.subheader("💡 Sample Queries")
+st.sidebar.markdown("""
+*Copy & paste these into the search bar:*
+
+**Logistics & Supply Chain:**
+`What are the latest AI adoption trends and ASI-driven predictive analytics workflows currently transforming the global supply chain industry in 2026?`
+
+**Finance & Risk:**
+`Analyze the current state of AI adoption in algorithmic trading and how financial institutions are preparing for ASI workflows in quantitative risk assessment.`
+
+**Healthcare & Biotech:**
+`What are the current industry trends regarding AI adoption in biotech, specifically focusing on how pharmaceutical companies are leveraging agentic workflows for drug discovery?`
+
+**Enterprise Strategy:**
+`How are Fortune 500 companies restructuring their internal operations to adapt to autonomous AI agents and upcoming ASI workflows?`
+""")
+
 query = st.text_input("Research Query", placeholder="e.g. AI adoption trends and ASI workflows in the global logistics industry")
 
 if st.button("Generate Insights ✨"):
