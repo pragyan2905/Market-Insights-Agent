@@ -2,6 +2,9 @@
 fastapi>=0.100.0
 uvicorn[standard]>=0.23.0
 
+# User Interface
+streamlit>=1.25.0
+
 # Data Validation & Settings
 pydantic>=2.0.0
 pydantic-settings>=2.0.0
