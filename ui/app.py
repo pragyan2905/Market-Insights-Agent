@@ -76,7 +76,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🔮 Optylize Market Insights")
+st.title("Optylize Market Insights")
 st.markdown("Enter a market research query below. Our ASI-powered agentic workflow will crawl the web, process data in real-time, and generate a structured report.")
 
 query = st.text_input("Research Query", placeholder="e.g. AI adoption trends and ASI workflows in the global logistics industry")
