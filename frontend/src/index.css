@@ -204,7 +204,7 @@ button:disabled {
 /* Metrics */
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
 }
 
@@ -312,18 +312,17 @@ button:disabled {
 }
 
 .recs-list li {
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 2.2rem;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   font-size: 0.95rem;
   position: relative;
-  padding-left: 3rem;
 }
 
 .recs-list li::before {
   content: '→';
   position: absolute;
-  left: 1rem;
+  left: 0.8rem;
   color: var(--accent-color);
   font-weight: bold;
 }

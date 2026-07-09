@@ -9,7 +9,7 @@ import json
 logger = get_logger(__name__)
 
 class SupervisorAgent:
-    def __init__(self, model: str = "gemini-3.0-pro", api_key: str = None):
+    def __init__(self, model: str = "gemini-2.5-flash", api_key: str = None):
         self.researcher = ResearcherAgent(model=model, api_key=api_key)
         self.analyst = AnalystAgent(model=model, api_key=api_key)
         self.llm = AsyncGeminiClient(model_name=model, temperature=0.0, api_key=api_key)
