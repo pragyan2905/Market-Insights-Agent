@@ -13,7 +13,7 @@ from langchain_core.messages import SystemMessage, HumanMessage
 logger = get_logger(__name__)
 
 class ResearcherAgent:
-    def __init__(self, model: str = "gemini-2.5-flash", api_key: str = None):
+    def __init__(self, model: str = "gemini-2.5-pro", api_key: str = None):
         self.rag = DynamicWebRAG(api_key=api_key)
         self.llm = AsyncGeminiClient(model_name=model, temperature=0.1, api_key=api_key) # low temp for facts
         self.text_splitter = RecursiveCharacterTextSplitter(

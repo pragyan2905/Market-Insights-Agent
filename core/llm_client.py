@@ -9,7 +9,7 @@ from structlog import get_logger
 logger = get_logger(__name__)
 
 class AsyncGeminiClient:
-    def __init__(self, model_name: str = "gemini-2.5-flash", temperature: float = 0.0, api_key: Optional[str] = None):
+    def __init__(self, model_name: str = "gemini-2.5-pro", temperature: float = 0.0, api_key: Optional[str] = None):
         self.model_name = model_name
         
         # Use provided key, otherwise fallback to env

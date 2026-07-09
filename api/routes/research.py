@@ -11,7 +11,7 @@ from typing import Optional
 class ResearchRequest(BaseModel):
     query: str
     api_key: Optional[str] = None
-    model: Optional[str] = "gemini-2.5-flash"
+    model: Optional[str] = "gemini-2.5-pro"
 
 @router.post("/", response_model=MarketReport)
 async def generate_research_report(request: ResearchRequest):
