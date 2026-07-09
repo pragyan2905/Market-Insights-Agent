@@ -38,7 +38,8 @@ function App() {
     setReport(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/v1/research/', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${apiUrl}/api/v1/research/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query, api_key: apiKey }),
