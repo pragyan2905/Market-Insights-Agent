@@ -11,7 +11,7 @@ from structlog import get_logger
 logger = get_logger(__name__)
 
 app = FastAPI(
-    title="Optylize Market Insights API",
+    title="Market Insight Agent API",
     description="Agentic Market Research Platform for AI/ASI Workflows",
     version="1.0.0"
 )

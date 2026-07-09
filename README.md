@@ -1,6 +1,6 @@
-# Optylize Insight Generation Agent
+# Market Insight Agent
 
-Optylize Insight Generation Agent is a multi-agent, Web-RAG (Retrieval-Augmented Generation) platform engineered to synthesize quantitative and qualitative market intelligence from live web data. The architecture utilizes asynchronous agent orchestration, dynamic vector indexing, and strict schema guardrails to produce deterministic, low-latency market research reports.
+Market Insight Agent is a multi-agent, Web-RAG (Retrieval-Augmented Generation) platform engineered to synthesize quantitative and qualitative market intelligence from live web data. The architecture utilizes asynchronous agent orchestration, dynamic vector indexing, and strict schema guardrails to produce deterministic, low-latency market research reports.
 
 ## Architecture and Core Components
 
