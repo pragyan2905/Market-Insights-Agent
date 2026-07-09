@@ -6,13 +6,13 @@
 
 ---
 
-## 🚀 Overview
+## Overview
 
 Market Insight Agent is a deterministic, low-latency market research platform. By orchestrating multiple specialized AI agents, the system autonomously synthesizes live web data into highly structured, schema-validated quantitative and qualitative market intelligence. 
 
 It leverages an asynchronous **Web-Retrieval-Augmented Generation (Web-RAG)** architecture to bypass the hallucination issues common in standard LLMs when dealing with real-time financial or market data.
 
-## 🧠 Core Architecture
+## Core Architecture
 
 The system operates via a decoupled client-server architecture:
 - **Frontend:** A high-performance React client (Vite) implementing a premium, glassmorphic UI.
@@ -34,7 +34,7 @@ The generation of intelligence is orchestrated via a three-tier agentic pipeline
    - **Role:** Data extraction, synthesis, and JSON strict structuring.
    - **Mechanism:** Synthesizes the raw RAG context against the original query using strict prompt engineering and Pydantic-defined schemas (`guardrails/output_parser.py`). It enforces deterministic JSON output structures for quantitative metrics, qualitative trends, and strategic recommendations, returning a validated payload back to the React UI.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Large Language Model:** Google Gemini (`gemini-2.5-pro`)
 - **Backend Framework:** FastAPI, Uvicorn, Python 3.10+
@@ -43,7 +43,7 @@ The generation of intelligence is orchestrated via a three-tier agentic pipeline
 - **Frontend:** React, TypeScript, Vite, Vanilla CSS
 - **Data Validation:** Pydantic
 
-## ⚙️ Local Development Setup
+## Local Development Setup
 
 ### 1. Repository Initialization
 Clone the repository and initialize your virtual environment:
@@ -91,7 +91,7 @@ npm run dev
 ```
 *Client available at `http://localhost:5173`*
 
-## ☁️ Deployment
+## Deployment
 
 This project is built for zero-downtime, serverless/PaaS deployments.
 
